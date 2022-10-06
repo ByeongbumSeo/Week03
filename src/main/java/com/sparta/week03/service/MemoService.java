@@ -33,12 +33,12 @@ public class MemoService {
 
     }
 
-    public Long delete(Long id, MemoDeleteRequestDto deleteRequestDto) {
+    public Long check(Long id, MemoDeleteRequestDto deleteRequestDto) {
         Memo memo = memoRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("아이디가 존재하지 않습니다.")
                 // IllegalArgumentException : 적합하지 않거나 적절하지 못한 인자를 메소드에 넘겨주었을 때
         );
-        memo.delete(deleteRequestDto);
+        memo.check(deleteRequestDto);
         return memo.getId();
     }
 }

@@ -25,7 +25,7 @@ public class Memo extends Timestamped { // 상속되었기 때문에 생성,수�
 
     @Column(nullable = false)
     private String title;
-//@JsonIgnore
+@JsonIgnore
     @Column(nullable = false)
     private String password;
 
@@ -50,7 +50,7 @@ public class Memo extends Timestamped { // 상속되었기 때문에 생성,수�
         this.title = requestDto.getTitle();
         this.password = requestDto.getPassword();
     }
-    public void delete(MemoDeleteRequestDto deleteRequestDto){
+    public void check(MemoDeleteRequestDto deleteRequestDto){
         this.password = deleteRequestDto.getPassword();
     }
 }

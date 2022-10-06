@@ -12,7 +12,6 @@ import java.util.Optional;
 @RequiredArgsConstructor //final이 붙거나 @NotNull 이 붙은 필드의 생성자를 자동 생성해주는 롬복 어노테이션
 @RestController // controller임을 알려주는 표시
 public class MemoController {
-
     private final MemoRepository memoRepository;
     private final MemoService memoService;
 
@@ -53,7 +52,7 @@ public class MemoController {
     public String deleteMemo(@PathVariable Long id, @RequestBody MemoDeleteRequestDto deleteRequestDto) {
         Optional<Memo> memo = memoRepository.findById(id);
         if (memo.get().getPassword().equals(deleteRequestDto.getPassword())) {
-            memoService.delete(id, deleteRequestDto);
+            memoService.check(id, deleteRequestDto);
             return "true";
         } else {
             return "false";
